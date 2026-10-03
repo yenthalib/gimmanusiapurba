@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jejak Sang Manusia Purba — Ekspedisi Arkeologi Nusantara</title>
+    <meta name="description" content="Game edukasi sejarah berbasis web tentang manusia purba dan kehidupan zaman prasejarah Indonesia. Untuk siswa kelas X Madrasah Aliyah.">
+    <meta name="keywords" content="manusia purba, prasejarah, arkeologi, game edukasi, sejarah Indonesia, MAN 1 Gorontalo">
+    <meta name="author" content="MAN 1 Kabupaten Gorontalo">
+    <meta name="theme-color" content="#1a1410">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/screens.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- App Root -->
+    <div id="app-root"></div>
+    
+    <!-- Orientation Warning -->
+    <div id="orientation-warning" class="orientation-warning" style="display:none;">
+        <div class="orientation-warning__content">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                <line x1="12" y1="18" x2="12" y2="18"/>
+            </svg>
+            <h2>Putar Perangkat Anda</h2>
+            <p>Untuk pengalaman terbaik, gunakan perangkat dalam orientasi <strong>landscape</strong> (horizontal).</p>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-screen__content">
+            <div class="loading-compass">
+                <svg viewBox="0 0 100 100" class="compass-svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="35" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+                    <line x1="50" y1="10" x2="50" y2="25" stroke="#D4AF37" stroke-width="2" class="compass-needle"/>
+                    <line x1="50" y1="75" x2="50" y2="90" stroke="rgba(212,175,55,0.5)" stroke-width="2"/>
+                    <line x1="10" y1="50" x2="25" y2="50" stroke="rgba(212,175,55,0.5)" stroke-width="2"/>
+                    <line x1="75" y1="50" x2="90" y2="50" stroke="rgba(212,175,55,0.5)" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="3" fill="#D4AF37"/>
+                </svg>
+            </div>
+            <h2 class="loading-title">Memuat Ekspedisi...</h2>
+            <div class="loading-bar">
+                <div class="loading-bar__fill" id="loading-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements Container -->
+    <div id="audio-container" style="display:none;"></div>
+
+    <!-- Core Scripts (order matters) -->
+    <script src="js/data/assets.js"></script>
+    <script src="js/data/maps.js"></script>
+    <script src="js/data/questions.js"></script>
+    <script src="js/data/characters.js"></script>
+    <script src="js/data/badges.js"></script>
+    <script src="js/data/learning-objectives.js"></script>
+    <script src="js/data/audio-config.js"></script>
+    
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/analytics.js"></script>
+    
+    <script src="js/game/state-machine.js"></script>
+    <script src="js/game/xp-system.js"></script>
+    <script src="js/game/badge-system.js"></script>
+    <script src="js/game/hint-system.js"></script>
+    <script src="js/game/audio-manager.js"></script>
+    <script src="js/game/save-system.js"></script>
+    <script src="js/game/assessment-engine.js"></script>
+    
+    <script src="js/components/modal.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/xp-display.js"></script>
+    <script src="js/components/badge-display.js"></script>
+    <script src="js/components/material-panel.js"></script>
+    <script src="js/components/hint-button.js"></script>
+    <script src="js/components/feedback.js"></script>
+    
+    <script src="js/screens/home.js"></script>
+    <script src="js/screens/identity.js"></script>
+    <script src="js/screens/character-select.js"></script>
+    <script src="js/screens/world-map.js"></script>
+    <script src="js/screens/map-gameplay.js"></script>
+    <script src="js/screens/final-boss.js"></script>
+    <script src="js/screens/victory.js"></script>
+    <script src="js/screens/reflection.js"></script>
+    <script src="js/screens/teacher-dashboard.js"></script>
+    
+    <script src="js/reports/pdf-generator.js"></script>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
